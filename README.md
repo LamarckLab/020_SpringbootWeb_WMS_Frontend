@@ -1,24 +1,2 @@
-# wms-web
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+如果IDEA中无法push到github中，可能是登录权限过期了,在终端输入：
+> git push origin master
