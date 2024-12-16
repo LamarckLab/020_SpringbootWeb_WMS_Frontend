@@ -1,26 +1,22 @@
 <template>
   <div id="app">
-    <el-button>这是一个element按钮</el-button>
+    <IndexComponent></IndexComponent>
   </div>
 </template>
 
 <script>
 
+
+import IndexComponent from "@/components/Index.vue";
+
 export default {
   name: 'App',
   components: {
-
+    IndexComponent
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
