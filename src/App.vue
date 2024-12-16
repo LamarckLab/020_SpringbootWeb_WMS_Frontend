@@ -5,8 +5,6 @@
 </template>
 
 <script>
-
-
 import IndexComponent from "@/components/Index.vue";
 
 export default {
@@ -18,5 +16,4 @@ export default {
 </script>
 
 <style>
-
 </style>
