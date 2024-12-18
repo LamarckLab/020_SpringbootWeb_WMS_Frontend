@@ -1,6 +1,6 @@
 <template>
-  <el-container style="height: 500px; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-container style="height: 100%; border: 1px solid #eee">
+    <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%">
       <el-menu :default-openeds="['1', '3']">
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>导航一</template>
@@ -50,7 +50,7 @@
       </el-menu>
     </el-aside>
 
-    <el-container>
+    <el-container style="height: 100%">
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
           <i class="el-icon-setting" style="margin-right: 15px"></i>
@@ -60,10 +60,10 @@
             <el-dropdown-item>删除</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span>王小虎</span>
+        <span>拉马克</span>
       </el-header>
 
-      <el-main>
+      <el-main style="height: 100%">
         <el-table :data="tableData">
           <el-table-column prop="date" label="日期" width="140">
           </el-table-column>
@@ -82,9 +82,10 @@
   background-color: #B3C0D1;
   color: #333;
   line-height: 60px;
+  padding: 10px;
 }
 .el-main{
-  padding: 30px;
+  padding: 20px;
 }
 .el-aside {
   color: #333;
@@ -96,12 +97,12 @@
     name: "IndexComponent",
     data() {
       const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        date: '2002-05-10',
+        name: '拉马克',
+        address: '北京市朝阳区大屯路'
       };
       return {
-        tableData: Array(10).fill(item)
+        tableData: Array(15).fill(item)
       }
     }
   };
