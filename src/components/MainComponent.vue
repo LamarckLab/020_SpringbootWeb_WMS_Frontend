@@ -5,7 +5,7 @@
     </el-aside>
 
     <el-container style="height: 100%">
-      <el-header style="text-align: right; font-size: 12px">
+      <el-header style="text-align: right; font-size: 12px; border-bottom: darkgray 3px solid">
         <header-component></header-component>
       </el-header>
 
@@ -18,10 +18,10 @@
 
 <style scoped>
 .el-header {
-  background-color: #B3C0D1;
   color: #333;
   line-height: 60px;
   padding: 10px;
+  margin-top: 3px;
 }
 .el-main{
   padding: 20px;
