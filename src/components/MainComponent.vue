@@ -1,6 +1,6 @@
 <template>
-  <el-container style="height: 100%; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%">
+  <el-container style="height: 100%; border: 1px solid #eee; margin-top: -9px">
+    <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%; margin-left: -9px">
       <AsideComponent></AsideComponent>
     </el-aside>
 
@@ -16,12 +16,10 @@
   </el-container>
 </template>
 
-<style scoped>
+<style>
 .el-header {
   color: #333;
   line-height: 60px;
-  padding: 10px;
-  margin-top: 3px;
 }
 .el-main{
   padding: 20px;
