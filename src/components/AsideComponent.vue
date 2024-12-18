@@ -30,8 +30,10 @@ export default {
   name: "AsideComponent",
   data(){
     return{
-      isCollapse: false
     }
+  },
+  props:{
+    isCollapse:Boolean
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100%; border: 1px solid #eee; margin-top: -9px">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%; margin-left: -9px">
-      <AsideComponent></AsideComponent>
+      <AsideComponent :isCollapse="isCollapse"></AsideComponent>
     </el-aside>
 
     <el-container style="height: 100%">
@@ -28,10 +28,15 @@
   export default {
     name: "MainComponent",
     components: {TableComponent, HeaderComponent, AsideComponent},
+    data(){
+      return{
+        isCollapse:false
+      }
+    },
     methods:{
       doCollapse(){
-        console.log(1234)
+        this.isCollapse = !this.isCollapse
       }
-  }
+  },
   };
 </script>
