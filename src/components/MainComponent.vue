@@ -1,6 +1,6 @@
 <template>
   <el-container style="height: 100%; border: 1px solid #eee; margin-top: -9px">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%; margin-left: -9px">
+    <el-aside :width="aside_width" style="background-color: rgb(238, 241, 246); height: 100%; margin-left: -9px">
       <AsideComponent :isCollapse="isCollapse"></AsideComponent>
     </el-aside>
 
@@ -30,12 +30,19 @@
     components: {TableComponent, HeaderComponent, AsideComponent},
     data(){
       return{
-        isCollapse:false
+        isCollapse:false,
+        aside_width:'200px'
       }
     },
     methods:{
       doCollapse(){
         this.isCollapse = !this.isCollapse
+        if(!this.isCollapse){
+          this.aside_width = '200px'
+        }
+        else{
+          this.aside_width = '64px'
+        }
       }
   },
   };
