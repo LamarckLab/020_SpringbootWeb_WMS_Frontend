@@ -11,7 +11,23 @@ export default {
   name: 'App',
   components: {
     MainComponent
-  }
+  },
+  methods:{
+    loadGet(){
+      this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
+        console.log(res)
+      })
+    },
+    loadPost(){
+      this.$axios.post('http://localhost:9090/save',{}).then(res=>res.data).then(res=>{
+        console.log(res)
+      })
+    }
+  },
+  beforeMount() {
+    // this.loadGet()
+    this.loadPost()
+  },
 }
 </script>
 
