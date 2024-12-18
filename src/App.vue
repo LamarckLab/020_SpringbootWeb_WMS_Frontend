@@ -26,7 +26,7 @@ export default {
   },
   beforeMount() {
     // this.loadGet()
-    this.loadPost()
+    // this.loadPost()
   },
 }
 </script>
