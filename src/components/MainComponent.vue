@@ -6,7 +6,7 @@
 
     <el-container style="height: 100%">
       <el-header style="text-align: right; font-size: 12px; border-bottom: darkgray 3px solid">
-        <header-component @doCollapse="doCollapse"></header-component>
+        <header-component @doCollapse="doCollapse" :icon="icon"></header-component>
       </el-header>
 
       <el-main style="height: 100%">
@@ -31,7 +31,8 @@
     data(){
       return{
         isCollapse:false,
-        aside_width:'200px'
+        aside_width:'200px',
+        icon:'el-icon-s-fold'
       }
     },
     methods:{
@@ -39,9 +40,11 @@
         this.isCollapse = !this.isCollapse
         if(!this.isCollapse){
           this.aside_width = '200px'
+          this.icon = 'el-icon-s-fold'
         }
         else{
           this.aside_width = '64px'
+          this.icon = 'el-icon-s-unfold'
         }
       }
   },

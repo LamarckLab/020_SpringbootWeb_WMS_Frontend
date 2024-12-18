@@ -10,17 +10,17 @@
   >
     <el-menu-item index="/Home">
       <i class="el-icon-s-home"></i>
-      <span style="font-size: 16px">Home</span>
+      <span slot="title" style="font-size: 16px">Home</span>
     </el-menu-item>
 
     <el-menu-item index="/One">
       <i class="el-icon-s-promotion"></i>
-      <span style="font-size: 16px">Option One</span>
+      <span slot="title" style="font-size: 16px">Option One</span>
     </el-menu-item>
 
     <el-menu-item index="/Two">
       <i class="el-icon-s-data"></i>
-      <span style="font-size: 16px">Option Two</span>
+      <span slot="title" style="font-size: 16px">Option Two</span>
     </el-menu-item>
   </el-menu>
 </template>
