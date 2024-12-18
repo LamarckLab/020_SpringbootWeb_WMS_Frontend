@@ -6,7 +6,7 @@
 
     <el-container style="height: 100%">
       <el-header style="text-align: right; font-size: 12px; border-bottom: darkgray 3px solid">
-        <header-component></header-component>
+        <header-component @doCollapse="doCollapse"></header-component>
       </el-header>
 
       <el-main style="height: 100%">
@@ -17,16 +17,7 @@
 </template>
 
 <style>
-.el-header {
-  color: #333;
-  line-height: 60px;
-}
-.el-main{
-  padding: 20px;
-}
-.el-aside {
-  color: #333;
-}
+
 </style>
 
 <script>
@@ -37,15 +28,10 @@
   export default {
     name: "MainComponent",
     components: {TableComponent, HeaderComponent, AsideComponent},
-    // data() {
-    //   const item = {
-    //     date: '2002-05-10',
-    //     name: '拉马克',
-    //     address: '北京市朝阳区大屯路'
-    //   };
-    //   return {
-    //     tableData: Array(15).fill(item)
-    //   }
-    // }
+    methods:{
+      doCollapse(){
+        console.log(1234)
+      }
+  }
   };
 </script>
