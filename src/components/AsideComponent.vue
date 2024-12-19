@@ -33,7 +33,7 @@ export default {
     }
   },
   props:{
-    isCollapse:Boolean
+    isCollapse:Boolean  // 说明这个isCollapse变量是父组件提供的
   }
 }
 </script>

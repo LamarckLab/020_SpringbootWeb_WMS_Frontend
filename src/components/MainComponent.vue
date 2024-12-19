@@ -4,12 +4,12 @@
 <template>
   <el-container style="height: 100%; border: 1px solid #eee; margin-top: -9px">  <!--整个页面中最大的容器-->
     <el-aside :width="aside_width" style="background-color: rgb(238, 241, 246); height: 100%; margin-left: -9px">  <!--页面中的左侧导航栏-->
-      <AsideComponent :isCollapse="isCollapse"></AsideComponent>
+      <AsideComponent :isCollapse="isCollapse"></AsideComponent>  <!--将isCollapse变量提交给子组件-->
     </el-aside>
 
     <el-container style="height: 100%">  <!--页面右侧的大容器-->
       <el-header style="text-align: right; font-size: 12px; border-bottom: darkgray 3px solid">  <!--页面右侧的header-->
-        <header-component @doCollapse="doCollapse" :icon="icon"></header-component>
+        <header-component @doCollapse="doCollapse" :icon="icon"></header-component>  <!--当header上传doCollapse响应，此处会执行doCollapse方法-->
       </el-header>
 
       <el-main style="height: 100%">  <!--页面右侧的数据展示部分-->
@@ -39,7 +39,7 @@
       }
     },
     methods:{
-      doCollapse(){
+      doCollapse(){  // 当doCollapse方法被执行，会将isCollapse的值取反
         this.isCollapse = !this.isCollapse
         if(!this.isCollapse){
           this.aside_width = '200px'
