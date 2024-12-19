@@ -1,14 +1,21 @@
 <template>
   <el-table :data="tableData">
-    <el-table-column prop="id" label="ID" width="40">
+    <el-table-column prop="id" label="ID" width="80">
     </el-table-column>
-    <el-table-column prop="name" label="Name" width="100">
+    <el-table-column prop="name" label="Name" width="180">
     </el-table-column>
-    <el-table-column prop="age" label="Age" width="100">
+    <el-table-column prop="age" label="Age" width="180">
     </el-table-column>
-    <el-table-column prop="sex" label="Sex" width="100">
+    <el-table-column prop="sex" label="Sex" width="180">
+      <template slot-scope="scope">
+        <el-tag
+            :type="scope.row.sex === '1' ? 'primary' : 'success'"
+            disable-transitions>{{scope.row.tag}}</el-tag>
+      </template>
     </el-table-column>
     <el-table-column prop="phone" label="Tel" width="200">
+    </el-table-column>
+    <el-table-column prop="operate" label="Operate" width="200">
     </el-table-column>
   </el-table>
 </template>
