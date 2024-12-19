@@ -57,20 +57,36 @@ export default {
   },
   methods:{
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.loadPost();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.pageNum = val;
+      this.loadPost();
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
         console.log(res)
         this.tableData = res
       })
-    }
+    },
+    loadPost() {
+      this.$axios
+          .get('http://localhost:9090/listPage', {
+            params: {
+              pageNum: this.pageNum,
+              pageSize: this.pageSize,
+            },
+          })
+          .then((res) => {
+            this.tableData = res.data.data; // 分页数据
+            this.total = res.data.total;   // 总条数
+          });
+    },
   },
   beforeMount() {
-    this.loadGet()
+    // this.loadGet()
+    this.loadPost()
   }
 };
 
