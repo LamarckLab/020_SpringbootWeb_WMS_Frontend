@@ -9,11 +9,18 @@
     <el-table-column prop="sex" label="Sex" width="180">
       <template slot-scope="scope">
         <el-tag
-            :type="scope.row.sex === '1' ? 'primary' : 'success'"
-            disable-transitions>{{scope.row.tag}}</el-tag>
+            :type="scope.row.sex == '1' ? 'primary' : 'success'"
+            disable-transitions>{{scope.row.sex == '1' ? 'Male' : 'Female'}}</el-tag>
       </template>
     </el-table-column>
     <el-table-column prop="phone" label="Tel" width="200">
+    </el-table-column>
+    <el-table-column prop="roleId" label="Role" width="200">
+      <template slot-scope="scope">
+        <el-tag
+            :type="scope.row.roleId == '0' ? 'danger' : 'info'"
+            disable-transitions>{{scope.row.roleId == '0' ? 'Administrator' : 'User'}}</el-tag>
+      </template>
     </el-table-column>
     <el-table-column prop="operate" label="Operate" width="200">
     </el-table-column>
