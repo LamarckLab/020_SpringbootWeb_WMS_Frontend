@@ -1,16 +1,12 @@
 <template>
   <div>
-    <!--这部分是搜素框-->
-    <div style="margin-bottom: 10px">
-      <el-input placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"></el-input>
-      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>
-      <el-button type="success">Reset</el-button>
+    <div style="margin-bottom: 10px">  <!--这部分是搜素框-->
+      <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"></el-input>  <!--定义了 一个输入框-->
+      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--定义了一个搜索按钮-->
+      <el-button type="success">Reset</el-button>  <!--定义了一个重置按钮-->
     </div>
-    <!--设置了header头中的背景颜色和字体颜色-->
-    <el-table :data="tableData"
-    :header-cell-style="{background: '#F2F5FC', color: '#555555'}"
-    border
-    >
+    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--设置了header头中的背景颜色和字体颜色-->
+<!--      下面这部分是表头-->
       <el-table-column prop="id" label="ID" width="80">
       </el-table-column>
       <el-table-column prop="name" label="Name" width="180">
@@ -38,6 +34,7 @@
         <el-button type="danger" size="small">Delete</el-button>
       </el-table-column>
     </el-table>
+<!--    下面这部分是分页的组件-->
     <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -58,7 +55,8 @@ export default {
       tableData: [],
       pageNum: 1,
       pageSize: 5,
-      total: 0
+      total: 0,
+      searchName:''
     }
   },
   methods:{
@@ -82,9 +80,7 @@ export default {
             params: {
               pageNum: this.pageNum,
               pageSize: this.pageSize,
-              param:{
-
-              }
+              name: this.searchName,
             },
           })
           .then((res) => {
