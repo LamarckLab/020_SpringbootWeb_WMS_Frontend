@@ -1,12 +1,16 @@
 // 引入了Vue的核心库
 import Vue from 'vue'
+
 // 引入了Element UI组件库
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
 // 引入根组件
 import App from './App.vue'
+
 // 导入全局样式表
 import './assets/global.css'
+
 // 引入Axios
 import axios from "axios";
 Vue.prototype.$axios=axios;
