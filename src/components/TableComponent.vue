@@ -6,11 +6,11 @@
       <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px"
                  @keyup.enter.native="loadPost">  <!--下拉选择框, 定义了提示词、水平偏移、回车事件, 内部值绑定了sex变量-->
         <el-option
-            v-for="item in sexs"
+            v-for="item in sexes"
             :key="item.value"
             :label="item.label"
             :value="item.value">
-        </el-option>
+        </el-option>  <!--下拉选择框中的选项-->
       </el-select>
       <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--定义了一个搜索按钮-->
       <el-button type="success" @click="resetParam">Reset</el-button>  <!--定义了一个重置按钮-->
@@ -68,7 +68,7 @@ export default {
       total: 0,
       searchName:'',
       sex:'',
-      sexs:[{
+      sexes:[{
         value: '1',
         label: 'Male'
       }, {
