@@ -15,7 +15,7 @@
       <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--搜索按钮, 定义了：水平偏移量、点击事件-->
       <el-button type="success" @click="resetParam">Reset</el-button>  <!--重置按钮, 定义了：点击事件-->
     </div>
-    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--设置了header头中的背景颜色和字体颜色-->
+    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--表格部分，此处定义了表头的背景颜色和字体颜色-->
 <!--      下面这部分是表头-->
       <el-table-column prop="id" label="ID" width="80">
       </el-table-column>
@@ -24,7 +24,7 @@
       <el-table-column prop="age" label="Age" width="180">
       </el-table-column>
       <el-table-column prop="sex" label="Sex" width="180">
-        <template slot-scope="scope">
+        <template slot-scope="scope">  <!--将性别映射成了彩色标签-->
           <el-tag
               :type="scope.row.sex == '1' ? 'primary' : 'success'"
               disable-transitions>{{scope.row.sex == '1' ? 'Male' : 'Female'}}</el-tag>
@@ -33,7 +33,7 @@
       <el-table-column prop="phone" label="Tel" width="200">
       </el-table-column>
       <el-table-column prop="roleId" label="Role" width="200">
-        <template slot-scope="scope">
+        <template slot-scope="scope">  <!--将角色类型映射成了彩色标签-->
           <el-tag
               :type="scope.row.roleId == '0' ? 'danger' : (scope.row.roleId == '1' ? 'warning' : 'info')"
               disable-transitions>{{scope.row.roleId == '0' ? 'Super Admin' : (scope.row.roleId == '1' ? 'Admin' : 'User')}}</el-tag>
