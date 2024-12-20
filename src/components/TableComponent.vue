@@ -44,13 +44,15 @@
         <el-button type="danger" size="small">Delete</el-button>  <!--删除按钮-->
       </el-table-column>
     </el-table>
-<!--    下面这部分是分页的组件-->
+<!--下面这部分是分页的组件-->
+    <!--@size-change用于将选定的分页尺寸传给pageSize变量接收-->
+    <!--@current-change用于将选定的页码传给pageNum变量接收-->
     <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
+        :page-size="pageSize"
         :current-page="pageNum"
         :page-sizes="[5, 10, 20, 50]"
-        :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
     </el-pagination>
@@ -64,7 +66,7 @@ export default {
     return {
       tableData: [],
       pageNum: 1,
-      pageSize: 12,
+      pageSize: 10,
       total: 0,
       searchName:'',
       sex:'',
@@ -81,6 +83,7 @@ export default {
   methods:{
     handleSizeChange(val) {
       this.pageSize = val;
+      this.pageNum = 1;
       this.loadPost();
     },
     handleCurrentChange(val) {
@@ -106,7 +109,7 @@ export default {
               name: this.searchName,
               sex: this.sex,
             },
-          })
+          })  // 这四个参数是前端打包传给后端的内容
           .then((res) => {
             this.tableData = res.data.data; // 分页数据
             this.total = res.data.total;   // 总条数
