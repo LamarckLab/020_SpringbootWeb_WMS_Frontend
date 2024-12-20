@@ -39,9 +39,9 @@
               disable-transitions>{{scope.row.roleId == '0' ? 'Super Admin' : (scope.row.roleId == '1' ? 'Admin' : 'User')}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="operate" label="Operate" width="200">
-        <el-button type="success" size="small">Edit</el-button>
-        <el-button type="danger" size="small">Delete</el-button>
+      <el-table-column prop="operate" label="Operate" width="200">  <!--对角色进行编辑和删除-->
+        <el-button type="success" size="small">Edit</el-button>  <!--编辑按钮-->
+        <el-button type="danger" size="small">Delete</el-button>  <!--删除按钮-->
       </el-table-column>
     </el-table>
 <!--    下面这部分是分页的组件-->
