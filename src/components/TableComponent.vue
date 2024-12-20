@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="margin-bottom: 10px">  <!--这部分是搜素框-->
+    <div style="margin-bottom: 10px"><!--这部分是搜素框, 里面包含name输入搜索、sex下拉选择、搜索按钮和重置按钮-->
       <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"
                 @keyup.enter.native="loadPost"></el-input>  <!--定义了 一个输入框-->
       <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px"
@@ -64,7 +64,7 @@ export default {
     return {
       tableData: [],
       pageNum: 1,
-      pageSize: 5,
+      pageSize: 12,
       total: 0,
       searchName:'',
       sex:'',
