@@ -3,7 +3,8 @@
     <div style="margin-bottom: 10px">  <!--这部分是搜素框-->
       <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"
                 @keyup.enter.native="loadPost"></el-input>  <!--定义了 一个输入框-->
-      <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px">
+      <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px"
+                 @keyup.enter.native="loadPost">
         <el-option
             v-for="item in sexs"
             :key="item.value"
@@ -12,7 +13,7 @@
         </el-option>
       </el-select>
       <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--定义了一个搜索按钮-->
-      <el-button type="success">Reset</el-button>  <!--定义了一个重置按钮-->
+      <el-button type="success" @click="resetParam">Reset</el-button>  <!--定义了一个重置按钮-->
     </div>
     <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--设置了header头中的背景颜色和字体颜色-->
 <!--      下面这部分是表头-->
@@ -85,6 +86,10 @@ export default {
     handleCurrentChange(val) {
       this.pageNum = val;
       this.loadPost();
+    },
+    resetParam(){
+      this.searchName = '';
+      this.sex = ''
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
