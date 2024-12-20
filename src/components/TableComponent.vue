@@ -1,9 +1,10 @@
 <template>
   <div>
+    <!--这部分是搜素框-->
     <div style="margin-bottom: 10px">
-      <el-input placeholder="Enter name please" style="width: 200px"></el-input>
-      <el-button>Search</el-button>
-      <el-button>Reset</el-button>
+      <el-input placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"></el-input>
+      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>
+      <el-button type="success">Reset</el-button>
     </div>
     <!--设置了header头中的背景颜色和字体颜色-->
     <el-table :data="tableData"
@@ -81,6 +82,9 @@ export default {
             params: {
               pageNum: this.pageNum,
               pageSize: this.pageSize,
+              param:{
+
+              }
             },
           })
           .then((res) => {
