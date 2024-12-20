@@ -12,8 +12,8 @@
             :value="item.value">
         </el-option>  <!--下拉选择框中的选项-->
       </el-select>
-      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--定义了一个搜索按钮-->
-      <el-button type="success" @click="resetParam">Reset</el-button>  <!--定义了一个重置按钮-->
+      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--搜索按钮, 定义了：水平偏移量、点击事件-->
+      <el-button type="success" @click="resetParam">Reset</el-button>  <!--重置按钮, 定义了：点击事件-->
     </div>
     <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--设置了header头中的背景颜色和字体颜色-->
 <!--      下面这部分是表头-->
