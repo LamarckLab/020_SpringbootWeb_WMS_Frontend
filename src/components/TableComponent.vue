@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div style="margin-bottom: 10px">
+      <el-input placeholder="Enter name please" style="width: 200px"></el-input>
+      <el-button>Search</el-button>
+      <el-button>Reset</el-button>
+    </div>
     <!--设置了header头中的背景颜色和字体颜色-->
     <el-table :data="tableData"
     :header-cell-style="{background: '#F2F5FC', color: '#555555'}"
