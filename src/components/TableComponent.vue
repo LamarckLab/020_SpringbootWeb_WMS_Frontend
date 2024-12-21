@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--姓名搜索框-->
-    <div style="margin-bottom: 10px"><!--这部分是搜素框, 里面包含name输入搜索、sex下拉选择、搜索按钮和重置按钮-->
+    <div style="margin-bottom: 10px">  <!--里面包含name输入搜索、sex下拉选择、搜索按钮和重置按钮-->
       <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"
                 @keyup.enter.native="loadPost"></el-input>  <!--输入框, 定义了提示词、长度、搜索小图标、回车事件, 内部值绑定了searchName变量-->
 
