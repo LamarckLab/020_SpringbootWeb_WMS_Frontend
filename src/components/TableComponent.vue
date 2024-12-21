@@ -110,7 +110,7 @@ export default {
     return {
       tableData: [],
       pageNum: 1,
-      pageSize: 10,
+      pageSize: 50,
       total: 0,
       searchName:'',
       sex:'',
@@ -158,6 +158,7 @@ export default {
         message: 'Submit successfully',
         type: 'success'
       });
+      this.loadPost()
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{

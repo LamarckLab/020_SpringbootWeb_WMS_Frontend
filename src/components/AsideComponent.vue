@@ -4,7 +4,7 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       default-active="/Home"
-      style="height: 100vh"
+      style="height: 200vh"
       :collapse="isCollapse"
       :collapse-transition="false"
   >
