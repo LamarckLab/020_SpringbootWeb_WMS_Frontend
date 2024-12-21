@@ -58,7 +58,7 @@
         :total="total">
     </el-pagination>
     <el-dialog
-        title="提示"
+        title="User Information Sheet"
         :visible.sync="centerDialogVisible"
         width="30%"
         center>
@@ -151,10 +151,8 @@ export default {
       this.centerDialogVisible = true
     },
     save(){
-      this.$axios
-          .post('http://localhost:9090/save', this.form).then((res) => {
-            console.log(res)
-          });
+      this.$axios.post('http://localhost:9090/save', this.form);
+      this.centerDialogVisible = false;
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
