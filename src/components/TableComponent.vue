@@ -154,6 +154,10 @@ export default {
     save(){
       this.$axios.post('http://localhost:9090/save', this.form);
       this.centerDialogVisible = false;
+      this.$message({
+        message: 'Submit successfully',
+        type: 'success'
+      });
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
