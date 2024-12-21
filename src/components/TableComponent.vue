@@ -43,7 +43,11 @@
       <el-table-column prop="operate" label="Operate" width="200">  <!--对角色进行编辑和删除-->
         <template slot-scope="scope">
           <el-button type="success" size="small" @click="editUser(scope.row)">Edit</el-button>  <!--编辑按钮-->
-          <el-button type="danger" size="small" @click="delUser">Delete</el-button>  <!--删除按钮-->
+
+          <el-popconfirm title="Delete this user?" @confirm="delUser(scope.row.id)">
+            <el-button slot="reference" size="small" type="danger">Delete</el-button>
+          </el-popconfirm>
+
         </template>
       </el-table-column>
     </el-table>
@@ -102,6 +106,51 @@
     <el-button type="primary" @click="save">Submit</el-button>
   </span>
     </el-dialog>
+
+    <el-dialog
+        title="User Information Edit Sheet"
+        :visible.sync="centerDialogVisible2"
+        width="30%"
+        center>
+      <el-form ref="form" :model="editForm" label-width="80px">
+        <el-form-item label="No">
+          <el-col :span="18">
+            <el-input v-model="editForm.no"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Name">
+          <el-col :span="18">
+            <el-input v-model="editForm.name"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Password">
+          <el-col :span="18">
+            <el-input v-model="editForm.password"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Age">
+          <el-col :span="18">
+            <el-input v-model="editForm.age"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Sex">
+          <el-radio-group v-model="editForm.sex">
+            <el-radio label="1">Male</el-radio>
+            <el-radio label="2">Female</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="Phone">
+          <el-col :span="18">
+            <el-input v-model="editForm.phone"></el-input>
+          </el-col>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="centerDialogVisible2 = false">Cancel</el-button>
+    <el-button type="primary" @click="modUser">Submit</el-button>
+  </span>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -125,7 +174,19 @@ export default {
       }
       ],
       centerDialogVisible: false,
+      centerDialogVisible2: false,
       form:{
+        id:'',
+        name:'',
+        no:'',
+        password:'',
+        age:'',
+        phone:'',
+        sex:'0',
+        roleId:'2',
+      },
+      editForm:{
+        id:'',
         name:'',
         no:'',
         password:'',
@@ -157,16 +218,38 @@ export default {
       this.$axios.post('http://localhost:9090/save', this.form);
       this.$message({
         message: 'Submit successfully',
-        type: 'success'
+        type: 'success',
       });
       this.centerDialogVisible = false;
       this.loadPost();
     },
     editUser(row){
       console.log(row)
-    },
-    delUser(){
+      //赋值到表单
+      this.editForm.id = row.id;
+      this.editForm.name = row.name;
+      this.editForm.no = row.no;
+      this.editForm.password = '';
+      this.editForm.sex = row.sex+'';
+      this.editForm.age = row.age;
+      this.editForm.phone = row.phone;
+      this.editForm.roleId = row.roleId;
 
+      this.centerDialogVisible2 = true;
+
+    },
+    modUser(){
+      this.$axios.post('http://localhost:9090/mod', this.editForm);
+      this.$message({
+        message: 'Edit successfully',
+        type: 'success',
+      });
+      this.centerDialogVisible2  = false;
+      this.loadPost();
+    },
+    delUser(id){
+      console.log(id);
+      this.$axios.get('http://localhost:9090/del?id='+id);
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
