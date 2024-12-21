@@ -14,6 +14,7 @@
       </el-select>
       <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--搜索按钮, 定义了：水平偏移量、点击事件-->
       <el-button type="success" @click="resetParam">Reset</el-button>  <!--重置按钮, 定义了：点击事件-->
+      <el-button type="warning" style="margin-left: 50px" @click="addUser">New</el-button>
     </div>
     <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--表格部分，此处定义了表头的背景颜色和字体颜色-->
 <!--      下面这部分是表头-->
@@ -93,6 +94,9 @@ export default {
     resetParam(){
       this.searchName = '';
       this.sex = ''
+    },
+    addUser(){
+
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
