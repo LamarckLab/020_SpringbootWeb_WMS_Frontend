@@ -146,10 +146,10 @@ export default {
     },
     resetParam(){
       this.searchName = '';
-      this.sex = ''
+      this.sex = '';
     },
     addUser(){
-      this.centerDialogVisible = true
+      this.centerDialogVisible = true;
     },
     save(){
       this.$axios.post('http://localhost:9090/save', this.form);
