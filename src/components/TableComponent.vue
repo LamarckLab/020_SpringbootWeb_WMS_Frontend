@@ -57,6 +57,49 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
     </el-pagination>
+    <el-dialog
+        title="提示"
+        :visible.sync="centerDialogVisible"
+        width="30%"
+        center>
+      <el-form ref="form" :model="form" label-width="80px">
+        <el-form-item label="No">
+          <el-col :span="18">
+            <el-input v-model="form.no"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Name">
+          <el-col :span="18">
+            <el-input v-model="form.name"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Password">
+          <el-col :span="18">
+            <el-input v-model="form.password"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Age">
+          <el-col :span="18">
+            <el-input v-model="form.age"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Sex">
+          <el-radio-group v-model="form.sex">
+            <el-radio label="1">Male</el-radio>
+            <el-radio label="2">Female</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="Phone">
+          <el-col :span="18">
+            <el-input v-model="form.phone"></el-input>
+          </el-col>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="centerDialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="save">Submit</el-button>
+  </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -78,7 +121,16 @@ export default {
         value: '2',
         label: 'Female'
       }
-      ]
+      ],
+      centerDialogVisible: false,
+      form:{
+        name:'',
+        no:'',
+        password:'',
+        age:'',
+        phone:'',
+        sex:'0',
+      },
     }
   },
   methods:{
@@ -96,7 +148,13 @@ export default {
       this.sex = ''
     },
     addUser(){
-
+      this.centerDialogVisible = true
+    },
+    save(){
+      this.$axios
+          .post('http://localhost:9090/save', this.form).then((res) => {
+            console.log(res)
+          });
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
