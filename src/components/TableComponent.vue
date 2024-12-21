@@ -41,8 +41,10 @@
         </template>
       </el-table-column>
       <el-table-column prop="operate" label="Operate" width="200">  <!--对角色进行编辑和删除-->
-        <el-button type="success" size="small">Edit</el-button>  <!--编辑按钮-->
-        <el-button type="danger" size="small">Delete</el-button>  <!--删除按钮-->
+        <template slot-scope="scope">
+          <el-button type="success" size="small" @click="editUser(scope.row)">Edit</el-button>  <!--编辑按钮-->
+          <el-button type="danger" size="small" @click="delUser">Delete</el-button>  <!--删除按钮-->
+        </template>
       </el-table-column>
     </el-table>
 <!--下面这部分是分页的组件-->
@@ -159,6 +161,12 @@ export default {
       });
       this.centerDialogVisible = false;
       this.loadPost();
+    },
+    editUser(row){
+      console.log(row)
+    },
+    delUser(){
+
     },
     loadGet(){
       this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
