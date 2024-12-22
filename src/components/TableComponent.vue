@@ -67,17 +67,15 @@
         <template slot-scope="scope">
           <!--编辑按钮-->
           <el-button type="success" size="small" @click="editUser(scope.row)">Edit</el-button>
-          <!--删除按钮-->
+          <!--删除按钮--> <!--删除确认提示框-->
           <el-popconfirm title="Delete this user?" @confirm="delUser(scope.row.id)">
             <el-button slot="reference" size="small" type="danger">Delete</el-button>
           </el-popconfirm>
-
         </template>
       </el-table-column>
     </el-table>
-<!--下面这部分是分页的组件-->
-    <!--@size-change用于将选定的分页尺寸传给pageSize变量接收-->
-    <!--@current-change用于将选定的页码传给pageNum变量接收-->
+
+    <!--分页组件-->
     <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
