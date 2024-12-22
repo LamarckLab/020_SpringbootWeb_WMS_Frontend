@@ -2,18 +2,19 @@
 
 <template>
   <div id="app">
-    <MainComponent></MainComponent>  <!--引入了名为 IndexComponent 的子组件-->
+<!--    <MainComponent></MainComponent>  &lt;!&ndash;引入了名为 IndexComponent 的子组件&ndash;&gt;-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MainComponent from "@/components/MainComponent.vue";  // 引入了 MainComponent.vue 子组件
+// import MainComponent from "@/components/MainComponent.vue";  // 引入了 MainComponent.vue 子组件
 
 // export default是JS的语法，用于导出一个对象或者一个模块。里面包含：该组件的名称、引用的子组件、方法和生命周期钩子
 export default {
   name: 'App',  // 该组件的名称
   components: {  // 该组件引用的子组件
-    MainComponent
+    // MainComponent
   },
   methods:{  // 该组件的方法
     loadGet(){
