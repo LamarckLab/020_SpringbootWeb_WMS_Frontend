@@ -1,12 +1,13 @@
 <template>
   <div>
-    <!--姓名搜索框-->
-    <div style="margin-bottom: 10px">  <!-- 里面包含name输入搜索、sex下拉选择、搜索按钮和重置按钮-->
+    <div style="margin-bottom: 10px">
+      <!--姓名输入搜索框-->
       <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"
-                @keyup.enter.native="loadPost"></el-input>  <!--输入框, 定义了提示词、长度、搜索小图标、回车事件, 内部值绑定了searchName变量-->
-
+                @keyup.enter.native="loadPost"></el-input>
+      <!--性别下拉选择框-->
       <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px"
-                 @keyup.enter.native="loadPost">  <!--下拉选择框, 定义了提示词、水平偏移、回车事件, 内部值绑定了sex变量-->
+                 @keyup.enter.native="loadPost">
+        
         <el-option
             v-for="item in sexes"
             :key="item.value"
@@ -14,6 +15,7 @@
             :value="item.value">
         </el-option>  <!--下拉选择框中的选项-->
       </el-select>
+
       <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--搜索按钮, 定义了：水平偏移量、点击事件-->
       <el-button type="success" @click="resetParam">Reset</el-button>  <!--重置按钮, 定义了：点击事件-->
       <el-button type="warning" style="margin-left: 50px" @click="addUser">New</el-button>
