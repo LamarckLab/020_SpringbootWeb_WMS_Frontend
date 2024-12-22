@@ -3,21 +3,28 @@
     <div class="loginDiv">
       <div class="login-content">
         <h1 class="login-title">Login</h1>
+
+        <!--登录页面的表单-->
         <el-form :model="loginForm" label-width="100px"
                  :rules="rules" ref="loginForm">
+
+          <!--ID输入框-->
           <el-form-item label="ID" prop="no">
             <el-input style="width: 200px" type="text" v-model="loginForm.no"
                       autocomplete="off" size="small"></el-input>
           </el-form-item>
+
+          <!--Password输入框-->
           <el-form-item label="Password" prop="password">
             <el-input style="width: 200px" type="password" v-model="loginForm.password"
                       show-password autocomplete="off" size="small" @keyup.enter.native="confirm"></el-input>
           </el-form-item>
 
           <!--提交按钮-->
-          <el-form-item>
+          <el-form-item style="margin-left: 60px">
             <el-button type="primary" @click="confirm" :disabled="confirm_disabled">Submit</el-button>
           </el-form-item>
+
         </el-form>
       </div>
     </div>
@@ -50,8 +57,10 @@ export default {
   methods:{
     // 点击Submit按钮，执行confirm方法
     confirm() {
+      // 对表单进行检验
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
+          // 校验通过, 就不运行重复提交
           this.confirm_disabled = true;
           axios.post("http://localhost:9090/login", {
                 no: this.loginForm.no,
@@ -112,4 +121,5 @@ export default {
   top: 25px;
   left: 25px;
 }
+
 </style>
