@@ -85,48 +85,61 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
     </el-pagination>
+
+    <!--点击New按钮后弹出来的表单-->
     <el-dialog
         title="User Information Sheet"
         :visible.sync="centerDialogVisible"
         width="30%"
         center>
+      <!--表单中的值绑定到form变量中-->
       <el-form ref="form" :model="form" label-width="80px">
+        <!--No输入框-->
         <el-form-item label="No">
           <el-col :span="18">
             <el-input v-model="form.no"></el-input>
           </el-col>
+          <!--Name输入框-->
         </el-form-item>
         <el-form-item label="Name">
           <el-col :span="18">
             <el-input v-model="form.name"></el-input>
           </el-col>
         </el-form-item>
+        <!--Password输入框-->
         <el-form-item label="Password">
           <el-col :span="18">
             <el-input v-model="form.password"></el-input>
           </el-col>
         </el-form-item>
+        <!--Age输入框-->
         <el-form-item label="Age">
           <el-col :span="18">
             <el-input v-model="form.age"></el-input>
           </el-col>
         </el-form-item>
+        <!--Sex选择输入框-->
         <el-form-item label="Sex">
           <el-radio-group v-model="form.sex">
             <el-radio label="1">Male</el-radio>
             <el-radio label="2">Female</el-radio>
           </el-radio-group>
         </el-form-item>
+        <!--Phone输入框-->
         <el-form-item label="Phone">
           <el-col :span="18">
             <el-input v-model="form.phone"></el-input>
           </el-col>
         </el-form-item>
       </el-form>
+
+      <!--表单末端部分-->
       <span slot="footer" class="dialog-footer">
-    <el-button @click="centerDialogVisible = false">Cancel</el-button>
-    <el-button type="primary" @click="save">Submit</el-button>
-  </span>
+        <!--取消按钮-->
+        <el-button @click="centerDialogVisible = false">Cancel</el-button>
+        <!--提交按钮-->
+        <el-button type="primary" @click="save">Submit</el-button>
+      </span>
     </el-dialog>
 
     <el-dialog
