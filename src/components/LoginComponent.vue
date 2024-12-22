@@ -60,7 +60,7 @@ export default {
       // 对表单进行检验
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          // 校验通过, 就不运行重复提交
+          // 校验通过, 就不允许重复提交
           this.confirm_disabled = true;
           axios.post("http://localhost:9090/login", {
                 no: this.loginForm.no,
