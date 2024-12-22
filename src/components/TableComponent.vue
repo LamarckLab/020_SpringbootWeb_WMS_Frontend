@@ -306,12 +306,7 @@ export default {
       console.log(id);
       this.$axios.get('http://localhost:9090/del?id='+id);
     },
-    loadGet(){
-      this.$axios.get('http://localhost:9090/list').then(res=>res.data).then(res=>{
-        console.log(res)
-        this.tableData = res
-      })
-    },
+    // 分页查询方法
     loadPost() {
       this.$axios
           .get('http://localhost:9090/listPage', {
@@ -321,21 +316,21 @@ export default {
               name: this.searchName,
               sex: this.sex,
             },
-          })  // 这四个参数是前端打包传给后端的内容
+          })
           .then((res) => {
-            this.tableData = res.data.data; // 分页数据
-            this.total = res.data.total;   // 总条数
+            this.tableData = res.data.data;
+            this.total = res.data.total;
           });
     },
   },
+  // 加载页面时访问的方法
   beforeMount() {
-    // this.loadGet()
     this.loadPost()
   }
 };
-
 </script>
 
-<style scoped>
 
+
+<style>
 </style>
