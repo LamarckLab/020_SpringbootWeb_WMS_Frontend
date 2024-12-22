@@ -1,27 +1,35 @@
 <template>
   <div>
     <div style="margin-bottom: 10px">
+
       <!--姓名输入搜索框-->
       <el-input v-model="searchName" placeholder="Enter name please" style="width: 200px" suffix-icon="el-icon-search"
                 @keyup.enter.native="loadPost"></el-input>
+
       <!--性别下拉选择框-->
       <el-select v-model="sex" filterable placeholder="Select sex please" style="margin-left: 5px"
                  @keyup.enter.native="loadPost">
-        
+        <!--下拉选择框中的选项-->
         <el-option
             v-for="item in sexes"
             :key="item.value"
             :label="item.label"
             :value="item.value">
-        </el-option>  <!--下拉选择框中的选项-->
+        </el-option>
       </el-select>
 
-      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>  <!--搜索按钮, 定义了：水平偏移量、点击事件-->
-      <el-button type="success" @click="resetParam">Reset</el-button>  <!--重置按钮, 定义了：点击事件-->
+      <!--搜索按钮-->
+      <el-button type="primary" style="margin-left: 10px" @click="loadPost">Search</el-button>
+      <!--重置按钮-->
+      <el-button type="success" @click="resetParam">Reset</el-button>
+      <!--新增用户按钮-->
       <el-button type="warning" style="margin-left: 50px" @click="addUser">New</el-button>
     </div>
-    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>  <!--表格部分，此处定义了表头的背景颜色和字体颜色-->
-<!--      下面这部分是表头-->
+
+    <!--表格主体部分-->
+    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>
+
+      <!--表头-->
       <el-table-column prop="id" label="ID" width="80">
       </el-table-column>
       <el-table-column prop="name" label="Name" width="180">
