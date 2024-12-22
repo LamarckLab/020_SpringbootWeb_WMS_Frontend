@@ -132,7 +132,6 @@
           </el-col>
         </el-form-item>
       </el-form>
-
       <!--表单末端部分-->
       <span slot="footer" class="dialog-footer">
         <!--取消按钮-->
@@ -142,56 +141,71 @@
       </span>
     </el-dialog>
 
+    <!--点击Edit按钮后弹出来的表单-->
     <el-dialog
         title="User Information Edit Sheet"
         :visible.sync="centerDialogVisible2"
         width="30%"
         center>
+      <!--表单的属性部分-->
       <el-form ref="form" :model="editForm" label-width="80px">
+        <!--No输入框-->
         <el-form-item label="No">
           <el-col :span="18">
             <el-input v-model="editForm.no"></el-input>
           </el-col>
         </el-form-item>
+        <!--Name输入框-->
         <el-form-item label="Name">
           <el-col :span="18">
             <el-input v-model="editForm.name"></el-input>
           </el-col>
         </el-form-item>
+        <!--Password输入框-->
         <el-form-item label="Password">
           <el-col :span="18">
             <el-input v-model="editForm.password"></el-input>
           </el-col>
         </el-form-item>
+        <!--Age输入框-->
         <el-form-item label="Age">
           <el-col :span="18">
             <el-input v-model="editForm.age"></el-input>
           </el-col>
         </el-form-item>
+        <!--Sex选择输入框-->
         <el-form-item label="Sex">
           <el-radio-group v-model="editForm.sex">
             <el-radio label="1">Male</el-radio>
             <el-radio label="2">Female</el-radio>
           </el-radio-group>
         </el-form-item>
+        <!--Phone输入框-->
         <el-form-item label="Phone">
           <el-col :span="18">
             <el-input v-model="editForm.phone"></el-input>
           </el-col>
         </el-form-item>
       </el-form>
+      <!--表单末端部分-->
       <span slot="footer" class="dialog-footer">
-    <el-button @click="centerDialogVisible2 = false">Cancel</el-button>
-    <el-button type="primary" @click="modUser">Submit</el-button>
+        <!--取消按钮-->
+        <el-button @click="centerDialogVisible2 = false">Cancel</el-button>
+        <!--提交按钮-->
+        <el-button type="primary" @click="modUser">Submit</el-button>
   </span>
     </el-dialog>
-
   </div>
 </template>
 
+
+
 <script>
 export default {
+  // 组件名称
   name: "TableComponent",
+
+  // 组件中的数据字段
   data() {
     return {
       tableData: [],
@@ -232,23 +246,30 @@ export default {
       },
     }
   },
+
+  // 组件中的方法
   methods:{
+    // 分页器监听页面尺寸
     handleSizeChange(val) {
       this.pageSize = val;
       this.pageNum = 1;
       this.loadPost();
     },
+    // 分页器监听页码
     handleCurrentChange(val) {
       this.pageNum = val;
       this.loadPost();
     },
+    // Reset按钮绑定的事件，用于重置参数
     resetParam(){
       this.searchName = '';
       this.sex = '';
     },
+    // New按钮绑定的事件，用于弹出新增角色表单
     addUser(){
       this.centerDialogVisible = true;
     },
+    // 新增按钮中Submit绑定的事件，用于创建新用户
     save(){
       this.$axios.post('http://localhost:9090/save', this.form);
       this.$message({
@@ -258,21 +279,19 @@ export default {
       this.centerDialogVisible = false;
       this.loadPost();
     },
+    // Edit按钮绑定的事件，用于读取当前行信息，赋值到Edit表单
     editUser(row){
-      console.log(row)
-      //赋值到表单
       this.editForm.id = row.id;
       this.editForm.name = row.name;
       this.editForm.no = row.no;
-      this.editForm.password = '';
+      this.editForm.password = '********';
       this.editForm.sex = row.sex+'';
       this.editForm.age = row.age;
       this.editForm.phone = row.phone;
       this.editForm.roleId = row.roleId;
-
       this.centerDialogVisible2 = true;
-
     },
+    // Edit表单中Submit按钮绑定的事件，用于修改用户信息
     modUser(){
       this.$axios.post('http://localhost:9090/mod', this.editForm);
       this.$message({
@@ -282,6 +301,7 @@ export default {
       this.centerDialogVisible2  = false;
       this.loadPost();
     },
+    // Delete按钮绑定的事件，用于删除用户
     delUser(id){
       console.log(id);
       this.$axios.get('http://localhost:9090/del?id='+id);
