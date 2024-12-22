@@ -30,32 +30,44 @@
     <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>
 
       <!--表头-->
+      <!--ID-->
       <el-table-column prop="id" label="ID" width="80">
       </el-table-column>
+      <!--Name-->
       <el-table-column prop="name" label="Name" width="180">
       </el-table-column>
+      <!--Age-->
       <el-table-column prop="age" label="Age" width="180">
       </el-table-column>
+      <!--Sex-->
       <el-table-column prop="sex" label="Sex" width="180">
-        <template slot-scope="scope">  <!--将性别映射成了彩色标签-->
+        <!--两种性别分别映射为两种彩色标签-->
+        <template slot-scope="scope">
           <el-tag
               :type="scope.row.sex == '1' ? 'primary' : 'success'"
               disable-transitions>{{scope.row.sex == '1' ? 'Male' : 'Female'}}</el-tag>
         </template>
       </el-table-column>
+      <!--Tel-->
       <el-table-column prop="phone" label="Tel" width="200">
       </el-table-column>
+      <!--Role-->
       <el-table-column prop="roleId" label="Role" width="200">
-        <template slot-scope="scope">  <!--将角色类型映射成了彩色标签-->
+        <!--三种角色类型分别映射成为三种彩色标签-->
+        <template slot-scope="scope">
           <el-tag
               :type="scope.row.roleId == '0' ? 'danger' : (scope.row.roleId == '1' ? 'warning' : 'info')"
               disable-transitions>{{scope.row.roleId == '0' ? 'Super Admin' : (scope.row.roleId == '1' ? 'Admin' : 'User')}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="operate" label="Operate" width="200">  <!--对角色进行编辑和删除-->
-        <template slot-scope="scope">
-          <el-button type="success" size="small" @click="editUser(scope.row)">Edit</el-button>  <!--编辑按钮-->
 
+      <!--Operate-->
+      <el-table-column prop="operate" label="Operate" width="200">
+        <!--这里的插槽标签用于访问此行的内容-->
+        <template slot-scope="scope">
+          <!--编辑按钮-->
+          <el-button type="success" size="small" @click="editUser(scope.row)">Edit</el-button>
+          <!--删除按钮-->
           <el-popconfirm title="Delete this user?" @confirm="delUser(scope.row.id)">
             <el-button slot="reference" size="small" type="danger">Delete</el-button>
           </el-popconfirm>
