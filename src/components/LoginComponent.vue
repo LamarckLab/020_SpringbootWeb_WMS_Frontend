@@ -62,6 +62,7 @@ export default {
         if (valid) {
           // 校验通过, 就不允许重复提交
           this.confirm_disabled = true;
+          // 向Controller中的login接口发送请求
           axios.post("http://localhost:9090/login", {
                 no: this.loginForm.no,
                 password: this.loginForm.password,
