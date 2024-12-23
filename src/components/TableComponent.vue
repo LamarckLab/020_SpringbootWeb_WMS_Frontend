@@ -31,7 +31,7 @@
 
       <!--表头-->
       <!--ID-->
-      <el-table-column prop="id" label="ID" width="80">
+      <el-table-column prop="no" label="Account" width="180">
       </el-table-column>
       <!--Name-->
       <el-table-column prop="name" label="Name" width="180">
@@ -95,7 +95,7 @@
       <!--表单中的值绑定到form变量中-->
       <el-form ref="form" :model="form" label-width="80px">
         <!--No输入框-->
-        <el-form-item label="No">
+        <el-form-item label="Account">
           <el-col :span="18">
             <el-input v-model="form.no"></el-input>
           </el-col>
@@ -150,7 +150,7 @@
       <!--表单的属性部分-->
       <el-form ref="form" :model="editForm" label-width="80px">
         <!--No输入框-->
-        <el-form-item label="No">
+        <el-form-item label="Account">
           <el-col :span="18">
             <el-input v-model="editForm.no"></el-input>
           </el-col>
