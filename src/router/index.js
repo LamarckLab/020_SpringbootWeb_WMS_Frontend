@@ -18,6 +18,22 @@ const routes = [
                     title:'home'
                 },
                 component: () => import('../components/HomeComponent'),
+            },
+            {
+                path: '/admin',
+                name: 'admin',
+                meta:{
+                    title:'admin'
+                },
+                component: () => import('../components/admin/AdminManage'),
+            },
+            {
+                path: '/User',
+                name: 'user',
+                meta:{
+                    title:'user'
+                },
+                component: () => import('../components/user/UserManage'),
             }
         ]
     },

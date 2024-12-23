@@ -14,12 +14,12 @@
       <span slot="title" style="font-size: 16px">Home</span>
     </el-menu-item>
 
-    <el-menu-item index="/One">
+    <el-menu-item index="/admin">
       <i class="el-icon-s-promotion"></i>
       <span slot="title" style="font-size: 16px">Option One</span>
     </el-menu-item>
 
-    <el-menu-item index="/Two">
+    <el-menu-item index="/user">
       <i class="el-icon-s-data"></i>
       <span slot="title" style="font-size: 16px">Option Two</span>
     </el-menu-item>
