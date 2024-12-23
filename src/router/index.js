@@ -10,6 +10,16 @@ const routes = [
         path: '/main',
         name: 'main',
         component: () => import('../components/MainComponent'),
+        children:[
+            {
+                path: '/home',
+                name: 'home',
+                meta:{
+                    title:'首页'
+                },
+                component: () => import('../components/HomeComponent'),
+            }
+        ]
     },
 ]
 

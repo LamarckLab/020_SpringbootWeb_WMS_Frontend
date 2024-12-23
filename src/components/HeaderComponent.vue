@@ -31,7 +31,7 @@
     },
     methods: {
       toUser(){
-        console.log('to_user')
+        this.$router.push("/home"); // 返回登录页面
       },
       logOut(){
         this.$confirm('Sure to quit?', '', {
