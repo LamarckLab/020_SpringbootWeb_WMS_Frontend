@@ -23,7 +23,7 @@ const routes = [
                 path: '/admin',
                 name: 'admin',
                 meta:{
-                    title:'admin'
+                    title:'Admin Management'
                 },
                 component: () => import('../components/admin/AdminManage'),
             },
@@ -31,7 +31,7 @@ const routes = [
                 path: '/User',
                 name: 'user',
                 meta:{
-                    title:'user'
+                    title:'User Management'
                 },
                 component: () => import('../components/user/UserManage'),
             }

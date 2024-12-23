@@ -14,15 +14,11 @@
       <span slot="title" style="font-size: 16px">Home</span>
     </el-menu-item>
 
-    <el-menu-item index="/admin">
-      <i class="el-icon-s-promotion"></i>
-      <span slot="title" style="font-size: 16px">Option One</span>
+    <el-menu-item :index="'/'+item.menuClick" v-for="(item,i) in menu" :key="i" >
+      <i :class="item.menuIcon"></i>
+      <span slot="title" style="font-size: 16px">{{item.menuName}}</span>
     </el-menu-item>
 
-    <el-menu-item index="/user">
-      <i class="el-icon-s-data"></i>
-      <span slot="title" style="font-size: 16px">Option Two</span>
-    </el-menu-item>
   </el-menu>
 </template>
 
@@ -31,6 +27,17 @@ export default {
   name: "AsideComponent",
   data(){
     return{
+      menu:[
+        {
+          menuClick:'admin',
+          menuName:'Admin Set',
+          menuIcon:'el-icon-s-custom',
+        },{
+          menuClick:'user',
+          menuName:'User Set',
+          menuIcon:'el-icon-user-solid',
+        }
+      ]
     }
   },
   props:{
