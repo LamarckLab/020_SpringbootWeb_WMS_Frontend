@@ -27,20 +27,25 @@
     </div>
 
     <!--表格主体部分-->
-    <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>
+    <el-table
+        :data="tableData"
+        :header-cell-style="{background: '#F2F5FC', color: '#555555', textAlign: 'center'}"
+        border
+        :cell-style="{ textAlign: 'center' }"
+    >
 
       <!--表头-->
       <!--Account-->
-      <el-table-column prop="no" label="Account" width="180">
+      <el-table-column prop="no" label="Account" width="160">
       </el-table-column>
       <!--Name-->
-      <el-table-column prop="name" label="Name" width="180">
+      <el-table-column prop="name" label="Name" width="160">
       </el-table-column>
       <!--Age-->
-      <el-table-column prop="age" label="Age" width="180">
+      <el-table-column prop="age" label="Age" width="160">
       </el-table-column>
       <!--Sex-->
-      <el-table-column prop="sex" label="Sex" width="180">
+      <el-table-column prop="sex" label="Sex" width="160">
         <!--两种性别分别映射为两种彩色标签-->
         <template slot-scope="scope">
           <el-tag
@@ -52,7 +57,7 @@
       <el-table-column prop="phone" label="Tel" width="200">
       </el-table-column>
       <!--Role-->
-      <el-table-column prop="roleId" label="Role" width="200">
+      <el-table-column prop="roleId" label="Role" width="150">
         <!--三种角色类型分别映射成为三种彩色标签-->
         <template slot-scope="scope">
           <el-tag
