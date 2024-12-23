@@ -310,6 +310,10 @@ export default {
     delUser(id){
       console.log(id);
       this.$axios.get('http://localhost:9090/del?id='+id);
+      this.$message({
+        type:'success',
+        message:'Delete successfully'
+      })
     },
     // 分页查询方法
     loadPost() {
