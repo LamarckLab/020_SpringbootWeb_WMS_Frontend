@@ -34,9 +34,35 @@
         console.log('to_user')
       },
       logOut(){
-        // 清除 sessionStorage 中的用户信息
-        sessionStorage.removeItem("userInfo"); //  当用户退出时, 清除sessionStorage
-        this.$router.push("/"); // 返回登录页面
+        this.$confirm('Sure to quit?', '', {
+          confirmButtonText: 'Quit',  //确认按钮的文字显示
+          cancelButtonText: 'Cancel',
+          type: 'warning',
+          center: true, //文字居中显示
+
+        })
+            .then(() => {
+              this.$message({
+                type:'success',
+                message:'Quit successfully'
+              })
+              // 清除 sessionStorage 中的用户信息
+              sessionStorage.removeItem("userInfo"); //  当用户退出时, 清除sessionStorage
+              this.$router.push("/"); // 返回登录页面
+            })
+            .catch(() => {
+              this.$message({
+                type:'info',
+                message:'Cancelled'
+              })
+            })
+
+
+
+
+
+
+
       },
       collapse(){
         this.$emit('doCollapse')  // 会将这个点击事件，提交给父组件的doCollapse响应
