@@ -7,8 +7,9 @@
       style="height: 100%"
       :collapse="isCollapse"
       :collapse-transition="false"
+      router
   >
-    <el-menu-item index="/Home">
+    <el-menu-item index="/home">
       <i class="el-icon-s-home"></i>
       <span slot="title" style="font-size: 16px">Home</span>
     </el-menu-item>
