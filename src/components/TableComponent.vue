@@ -30,7 +30,7 @@
     <el-table :data="tableData" :header-cell-style="{background: '#F2F5FC', color: '#555555'}" border>
 
       <!--表头-->
-      <!--ID-->
+      <!--Account-->
       <el-table-column prop="no" label="Account" width="180">
       </el-table-column>
       <!--Name-->
