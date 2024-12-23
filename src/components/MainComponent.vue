@@ -15,8 +15,8 @@
       </el-header>
 
       <el-main style="height: 100%">  <!--页面右侧的数据展示部分-->
-        <TableComponent></TableComponent>
-<!--        <router-view></router-view>-->
+<!--        <TableComponent></TableComponent>-->
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>
@@ -29,12 +29,11 @@
 <script>
   import AsideComponent from "@/components/AsideComponent.vue";
   import HeaderComponent from "@/components/HeaderComponent.vue";
-  import TableComponent from "@/components/TableComponent.vue";
 
 
   export default {
     name: "MainComponent",
-    components: {HeaderComponent, AsideComponent,TableComponent},
+    components: {HeaderComponent, AsideComponent},
     data(){
       return{
         isCollapse:false,
