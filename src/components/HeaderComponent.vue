@@ -10,8 +10,8 @@
     <i class="el-icon-user-solid" style="font-size: 25px"></i>
     <span>{{userInfo.name}}</span>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item @click.native="toUser">个人中心</el-dropdown-item>
-      <el-dropdown-item @click.native="logOut">退出登录</el-dropdown-item>
+      <el-dropdown-item @click.native="toUser">Personal Info</el-dropdown-item>
+      <el-dropdown-item @click.native="logOut">Quit</el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
   </div>
