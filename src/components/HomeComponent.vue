@@ -19,7 +19,7 @@
       <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-location-outline"></i>
-          Sex
+          Gender
         </template>
         <el-tag
             :type="user.sex === '1' ? 'primary' : 'danger'"
