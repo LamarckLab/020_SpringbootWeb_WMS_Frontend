@@ -15,7 +15,7 @@ const routes = [
                 path: '/home',
                 name: 'home',
                 meta:{
-                    title:'首页'
+                    title:'home'
                 },
                 component: () => import('../components/HomeComponent'),
             }

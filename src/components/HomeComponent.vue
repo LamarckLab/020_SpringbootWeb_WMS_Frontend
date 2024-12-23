@@ -37,17 +37,13 @@
       </el-descriptions-item>
     </el-descriptions>
 
-    <DateUtils></DateUtils>
   </div>
 </template>
 
 <script>
-import DateUtils from "./DateUtils";
 export default {
-  name: "Home",
-  components: {DateUtils},
+  name: "HomeComponent",
   data() {
-
     return {
       user:{}
     }

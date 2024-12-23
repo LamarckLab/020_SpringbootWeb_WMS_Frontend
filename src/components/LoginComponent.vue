@@ -2,7 +2,7 @@
   <div class="loginBody">
     <div class="loginDiv">
       <div class="login-content">
-        <h1 class="login-title">Login</h1>
+        <h2 class="login-title">Lamarck's Frontend System</h2>
 
         <!--登录页面的表单-->
         <el-form :model="loginForm" label-width="100px"
