@@ -34,9 +34,8 @@
         console.log('to_user')
       },
       logOut(){
-        // console.log('logout')
         // 清除 sessionStorage 中的用户信息
-        sessionStorage.removeItem("userInfo"); // 清除 sessionStorage
+        sessionStorage.removeItem("userInfo"); //  当用户退出时, 清除sessionStorage
         this.$router.push("/"); // 返回登录页面
       },
       collapse(){
