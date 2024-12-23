@@ -8,7 +8,7 @@
     </div>
   <el-dropdown>
     <i class="el-icon-user-solid" style="font-size: 25px"></i>
-    <span>拉马克</span>
+    <span>{{userInfo.name}}</span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item @click.native="toUser">个人中心</el-dropdown-item>
       <el-dropdown-item @click.native="logOut">退出登录</el-dropdown-item>
@@ -21,7 +21,8 @@
   export default {
     name: "HeaderComponent",
     props:{
-      icon:String
+      icon:String,
+      userInfo: Object,
     },
     data(){
       return{
@@ -34,7 +35,9 @@
       },
       logOut(){
         // console.log('logout')
-        this.$router.push("/");
+        // 清除 sessionStorage 中的用户信息
+        sessionStorage.removeItem("userInfo"); // 清除 sessionStorage
+        this.$router.push("/"); // 返回登录页面
       },
       collapse(){
         this.$emit('doCollapse')  // 会将这个点击事件，提交给父组件的doCollapse响应

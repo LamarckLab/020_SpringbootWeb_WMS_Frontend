@@ -71,6 +71,8 @@ export default {
                 const res = response.data;
                 if (res.success) {
                   this.$message.success(res.message);
+                  // 将用户完整信息存入 sessionStorage
+                  sessionStorage.setItem("userInfo", JSON.stringify(res.user));
                   // 跳转到 /main 页面
                   this.$router.push("/main");
                 } else {
