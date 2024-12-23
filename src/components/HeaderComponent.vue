@@ -33,7 +33,8 @@
         console.log('to_user')
       },
       logOut(){
-        console.log('logout')
+        // console.log('logout')
+        this.$router.push("/");
       },
       collapse(){
         this.$emit('doCollapse')  // 会将这个点击事件，提交给父组件的doCollapse响应
