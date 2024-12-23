@@ -58,7 +58,7 @@
       // 从 sessionStorage 获取完整用户信息
       const userInfo = sessionStorage.getItem("userInfo");
       if (userInfo) {
-        this.userInfo = JSON.parse(userInfo); // 解析 JSON 字符串为对象
+        this.userInfo = JSON.parse(userInfo); // 解析JSON字符串为对象
       } else {
         this.$router.push("/"); // 如果没有用户信息，返回登录页面
       }
