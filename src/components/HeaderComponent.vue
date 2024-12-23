@@ -60,6 +60,9 @@
       collapse(){
         this.$emit('doCollapse')  // 会将这个点击事件，提交给父组件的doCollapse响应
       }
+    },
+    created(){
+      this.$router.push("/home")
     }
   }
 </script>
