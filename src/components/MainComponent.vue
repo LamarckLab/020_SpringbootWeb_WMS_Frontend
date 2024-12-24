@@ -1,4 +1,3 @@
-<!--App.vue中<template>中只嵌入了这个MainComponent，所以实质上加载App.vue,是加载这个MainComponent-->
 <template>
   <el-container style="height: 100%; border: 1px solid #eee; margin-top: -9px">  <!--整个页面中最大的容器-->
     <el-aside :width="aside_width" style="height: 100vh; background-color: rgb(238, 241, 246); margin-left: -9px">  <!--页面中的左侧导航栏-->
